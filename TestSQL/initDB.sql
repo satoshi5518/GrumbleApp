@@ -1,20 +1,20 @@
-/* DB‚ª‘¶İ‚·‚éê‡‚Ííœ */
+/* DBãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯å‰Šé™¤ */
 DROP DATABASE IF EXISTS postingdb;
 
-/* ƒ†[ƒU‚Ì¶¬ */
+/* ãƒ¦ãƒ¼ã‚¶ã®ç”Ÿæˆ */
 DROP USER IF EXISTS postgres;
 CREATE USER postgres WITH PASSWORD 'postgres' CREATEDB;
 
-/* DB‚Ì¶¬ */
+/* DBã®ç”Ÿæˆ */
 CREATE DATABASE postingdb
   WITH OWNER = postgres
        ENCODING = 'UTF8';
 \c postingdb postgres
 
-/* ƒe[ƒuƒ‹‚ª‘¶İ‚·‚éê‡‚Ííœ */
+/* ãƒ†ãƒ¼ãƒ–ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯å‰Šé™¤ */
 DROP TABLE IF EXISTS posting;
 
-/* ƒe[ƒuƒ‹‚Ì¶¬ */
+/* ãƒ†ãƒ¼ãƒ–ãƒ«ã®ç”Ÿæˆ */
 create table posting (
  id               int NOT NULL,
  post_contents     text,
@@ -30,13 +30,13 @@ create table posting (
   )
 );
 
-/* ƒe[ƒuƒ‹‚ÌŠ—LŒ ‚ğpostgres‚É•ÏX */
+/* ãƒ†ãƒ¼ãƒ–ãƒ«ã®æ‰€æœ‰æ¨©ã‚’postgresã«å¤‰æ›´ */
 ALTER TABLE posting
   OWNER TO postgres;
-  
-/* ƒeƒXƒgƒf[ƒ^‚Ì‘}“ü */
-insert into posting VALUES(1,'“ŠeƒeƒXƒg1',null,null,0,'ƒeƒXƒg‘¾˜Y1','192.168.240.1',now(),false);
-insert into posting VALUES(2,'“ŠeƒeƒXƒg2',null,null,0,'ƒeƒXƒg‘¾˜Y1','192.168.240.2',now(),false);
-insert into posting VALUES(3,'“ŠeƒeƒXƒg3',null,null,0,'ƒeƒXƒg‘¾˜Y1','192.168.240.3',now(),false);
-insert into posting VALUES(4,'“ŠeƒeƒXƒg4',null,null,0,'ƒeƒXƒg‘¾˜Y1','192.168.240.4',now(),false);
-insert into posting VALUES(5,'“ŠeƒeƒXƒg5',null,null,0,'ƒeƒXƒg‘¾˜Y1','192.168.240.5',now(),false);
+
+/* ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ã®æŒ¿å…¥ */
+insert into posting VALUES(1,'æŠ•ç¨¿ãƒ†ã‚¹ãƒˆ1',null,null,0,'ãƒ†ã‚¹ãƒˆå¤ªéƒ1','192.168.240.1',now(),false);
+insert into posting VALUES(2,'æŠ•ç¨¿ãƒ†ã‚¹ãƒˆ2',null,null,0,'ãƒ†ã‚¹ãƒˆå¤ªéƒ1','192.168.240.2',now(),false);
+insert into posting VALUES(3,'æŠ•ç¨¿ãƒ†ã‚¹ãƒˆ3',null,null,0,'ãƒ†ã‚¹ãƒˆå¤ªéƒ1','192.168.240.3',now(),false);
+insert into posting VALUES(4,'æŠ•ç¨¿ãƒ†ã‚¹ãƒˆ4',null,null,0,'ãƒ†ã‚¹ãƒˆå¤ªéƒ1','192.168.240.4',now(),false);
+insert into posting VALUES(5,'æŠ•ç¨¿ãƒ†ã‚¹ãƒˆ5',null,null,0,'ãƒ†ã‚¹ãƒˆå¤ªéƒ1','192.168.240.5',now(),false);
