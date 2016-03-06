@@ -1,14 +1,13 @@
 package services;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import play.db.DB;
 import services.entity.PostingEntity;
+
+import common.DBFactory;
 
 /**
  * postingテーブルのすべてのレコードを取得する。
@@ -19,17 +18,11 @@ import services.entity.PostingEntity;
 public class GetGrumbleServices {
 
 	public static List<PostingEntity> get() throws SQLException {
-		// コネクションの確立
-		Connection connection = DB.getConnection();
 
-		// ステートメントを発行
-		Statement statement = connection.createStatement();
-
-		// SQL文の発行
 		String sql = "select * from posting";
 
 		// Queryの発行
-		ResultSet result = statement.executeQuery(sql);
+		ResultSet result = DBFactory.executeQuery(sql);
 
 		List<PostingEntity> postingEntityList = new ArrayList<PostingEntity>();
 
