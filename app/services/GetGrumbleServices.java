@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import play.api.db.DB;
+import play.db.DB;
 import services.entity.PostingEntity;
 
 /**
@@ -20,7 +20,7 @@ public class GetGrumbleServices {
 
 	public static List<PostingEntity> get() throws SQLException {
 		// コネクションの確立
-		Connection connection = DB.getConnection("defult", true, null);
+		Connection connection = DB.getConnection();
 
 		// ステートメントを発行
 		Statement statement = connection.createStatement();
@@ -38,7 +38,8 @@ public class GetGrumbleServices {
 
 			postingEntity.setId(result.getInt("id"));
 			postingEntity.setPost_contents(result.getString("post_contents"));
-			postingEntity.setGrumble_division(result.getInt("grumble_dvision"));
+			postingEntity
+					.setGrumble_division(result.getInt("grumble_division"));
 			postingEntity.setImage(result.getByte("image"));
 			postingEntity.setGoos_count(result.getInt("goos_count"));
 			postingEntity.setContributor_name(result
